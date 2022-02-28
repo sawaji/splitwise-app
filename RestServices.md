@@ -11,13 +11,25 @@ POST : http://localhost:8080/expenses/expenses
 POST : http://localhost:8080/friends/addFriend
 
 {
-
-"username":"varun",
-"name":"varun",
-"lastname":"sawaji",
-"balance":50.0
+"username": "vansh",
+"name": "vansh",
+"lastname": "sawaji",
+"balance": 300.0,
+"expenses": [
+{
+"amount": 500.0,
+"date": 20222702,
+"payer_id":1,
+"description": "Food"
+},
+{
+"amount": 300.0,
+"date": 20222602,
+"payer_id":2,
+"description": "Travel"
 }
-
+]
+}
 GET : http://localhost:8080/expenses/getall
 
 GET : http://localhost:8080/friends/getBalance

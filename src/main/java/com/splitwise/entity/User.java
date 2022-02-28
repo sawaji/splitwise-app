@@ -1,5 +1,7 @@
 package com.splitwise.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.List;
@@ -17,6 +19,7 @@ public class User {
 
     @OneToMany(cascade=CascadeType.ALL)
     @JoinColumn(name="expense_id")
+    @JsonBackReference
     private List<Expense> expenses;
 
     public User() {

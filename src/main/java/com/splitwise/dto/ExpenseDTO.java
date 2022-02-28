@@ -7,13 +7,13 @@ public class ExpenseDTO {
 
     private String username;
     private BigDecimal amount;
-    private Date date;
+    private String date;
     private String description;
 
     public ExpenseDTO() {
     }
 
-    public ExpenseDTO(String username, BigDecimal amount, Date date, String description) {
+    public ExpenseDTO(String username, BigDecimal amount, String  date, String description) {
         this.username = username;
         this.amount = amount;
         this.date = date;
@@ -28,7 +28,7 @@ public class ExpenseDTO {
         return amount;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
@@ -40,7 +40,7 @@ public class ExpenseDTO {
         this.amount = amount;
     }
 
-    public void setDate(Date dateEpoch) {
+    public void setDate(String dateEpoch) {
         this.date = dateEpoch;
     }
 

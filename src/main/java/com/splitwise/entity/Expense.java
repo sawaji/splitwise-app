@@ -1,27 +1,28 @@
 package com.splitwise.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.sql.Date;
-import java.time.Instant;
 
 @Entity
 public class Expense {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
 
     @ManyToOne
     @JoinColumn(name="payer_id")
     private User payer;
     private BigDecimal amount;
-    private Date date;
+    private String date;
     private String description;
 
 
     public Expense(){}
 
-    public Expense(User payer, BigDecimal amount, Date date, String description) {
+    public Expense(User payer, BigDecimal amount, String date, String description) {
         this.payer = payer;
         this.amount = amount;
         this.date = date;
@@ -36,7 +37,7 @@ public class Expense {
         return amount;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
@@ -48,7 +49,7 @@ public class Expense {
         this.amount = amount;
     }
 
-    public void setDate(Date date){
+    public void setDate(String date){
         this.date = date;
     }
 
@@ -63,7 +64,7 @@ public class Expense {
     public static class Builder {
         private User payer;
         private BigDecimal amount = BigDecimal.ZERO;
-        private Date date;
+        private String date;
         private String description;
 
         public Builder(){}
@@ -78,7 +79,7 @@ public class Expense {
             return this;
         }
 
-        public Builder withDate(Date date){
+        public Builder withDate(String date){
             this.date = date;
             return this;
         }
